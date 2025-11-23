@@ -52,7 +52,7 @@ export default function ProjectShowcase({ apiUrl, className = "" }: ProjectShowc
         return (
           <a
             key={project.id}
-            href={project.link || "#"} // <-- navigate to the Strapi "link"
+            href={project.link || "#"} // <-- navigate to the Strapi " link"
             target="_blank" // open in a new tab
             rel="noopener noreferrer"
             onMouseEnter={() => setHoveredId(project.id)}
