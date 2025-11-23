@@ -33,12 +33,6 @@ const Page = () => {
 
   return (
     <>
-      {/* Correctly set title and favicon */}
-      <Head>
-        <title>Jason Priskomatis Portfolio</title>
-        <link rel="icon" href="/images/icons/faviconLogo.ico" />
-      </Head>
-
       {loading ? (
         <div className="w-full h-screen flex items-center justify-center bg-[#20272f]">
           <TrafficLightLoader />
