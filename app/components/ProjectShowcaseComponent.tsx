@@ -8,6 +8,7 @@ interface Project {
   documentId: string;
   Title: string;
   Description: string;
+  link?: string; // <-- add this field
   Cover?: {
     url: string;
     alternativeText?: string;
@@ -49,8 +50,11 @@ export default function ProjectShowcase({ apiUrl, className = "" }: ProjectShowc
         const isDimmed = hoveredId !== null && hoveredId !== project.id;
 
         return (
-          <div
+          <a
             key={project.id}
+            href={project.link || "#"} // <-- navigate to the Strapi "link"
+            target="_blank" // open in a new tab
+            rel="noopener noreferrer"
             onMouseEnter={() => setHoveredId(project.id)}
             onMouseLeave={() => setHoveredId(null)}
             className={`group relative duration-300 rounded-xl overflow-visible max-w-xs flex flex-col items-center p-4 text-center
@@ -75,7 +79,7 @@ export default function ProjectShowcase({ apiUrl, className = "" }: ProjectShowc
 
             <h3 className="text-2xl font-bold mb-2 text-white">{project.Title}</h3>
             <p className="text-gray-400 mb-4">{project.Description}</p>
-          </div>
+          </a>
         );
       })}
     </div>
