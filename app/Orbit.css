@@ -1,41 +1,27 @@
 .orbit-container {
   position: relative;
   width: 400px;
-  height: 400px;
+  height: calc(var(--orbit-radius) * 2 + 300px);
   margin: 0 auto;
 }
 
-/*Kinda annoying that I have to match the $top with the .orbit-circle, maybe theres a better way*/
 .center-component {
   position: absolute;
-  top: 100%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
 }
 
-
-@media (max-width: 768){
-    .orbit-container {
-    position: relative;
-    width: 400px;
-    height: 200px;
-    margin: 0 auto;
-}
-}
-
 .orbit-circle {
   position: absolute;
-  top: 100%;
+  top: 50%;
   left: 50%;
   width: 100px;
   height: 100px;
-  transform: rotate(calc(360deg * var(--i) / var(--total))) translateX(var(--orbit-radius));
   transform-origin: 0 0;
   animation: rotate 50s linear infinite;
 }
-
-
 
 .orbit-circle img {
   width: 100%;
@@ -43,19 +29,7 @@
   border-radius: 50%;
   animation: spin 50s linear infinite;
 }
-@media (max-width: 1024px) {
-  .orbit-circle {
-    width: 100px;
-    height: 100px;
-  }
-}
 
-@media (max-width: 768px) {
-  .orbit-circle {
-    width: 10vw;
-    height: 5vh;
-  }
-}
 @keyframes rotate {
   0% {
     transform: rotate(calc(360deg * var(--i) / var(--total))) translateX(var(--orbit-radius));
@@ -70,4 +44,14 @@
   100% { transform: rotate(360deg); }
 }
 
+@media (max-width: 768px) {
+  .orbit-container {
+    width: 90vw;
+    height: calc(var(--orbit-radius) * 2 + 150px);
+  }
 
+  .orbit-circle {
+    width: 10vw;
+    height: 10vw;
+  }
+}

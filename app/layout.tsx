@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import TranslateProvider from "./components/TranslationProvider"; // client wrapper
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,26 +13,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// ✅ Updated metadata for production
 export const metadata: Metadata = {
   title: "Jason Priskomatis Portfolio",
   description: "My portfolio website",
   icons: {
-    icon: "/images/icons/faviconLogo.ico", // favicon path
+    icon: "/images/icons/faviconLogo.ico",
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <TranslateProvider>{children}</TranslateProvider>
       </body>
     </html>
   );

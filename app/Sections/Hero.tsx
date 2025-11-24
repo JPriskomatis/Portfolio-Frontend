@@ -8,8 +8,16 @@ import { TextAnimate } from '@/components/ui/text-animate';
 import { gsap } from 'gsap';
 import ParticleComponent from '../components/ParticlesHero';
 import IconButton from '../components/SocialButton';
+import i18n from '../Data/i18';
+import {useTranslation} from 'react-i18next'
+
+
 
 const Hero = () => {
+  
+  const {t} = useTranslation();
+
+
   const loremRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
@@ -30,7 +38,7 @@ const Hero = () => {
       <div className="md:w-1/2 text-center md:text-left border-l-4 pl-4 pb-4 border-b-4 border-newGreen">
         
         <TextAnimate className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-white">
-          Hello I'm
+          {t('greeting')}
         </TextAnimate>
 
         <TextAnimate
@@ -46,15 +54,13 @@ const Hero = () => {
           ref={loremRef}
           className="text-[#9a9ea1] mb-6 text-sm sm:text-base leading-relaxed"
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et
-          ornare nisl. Nunc iaculis orci ut elit ullamcorper, vitae tempus
-          enim cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          {t('greetingExtra')}
         </p>
 
         <CoolButton />
 
         <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-2 pt-12">
-          <div className="text-white sm:pr-8 text-lg">Check out my</div>
+          <div className="text-white sm:pr-8 text-lg">{t('checkOut')}</div>
           <div className="flex flex-row items-center gap-4">
             <IconButton src="/images/icons/linkedin.png" alt="Linkedin" href="https://www.linkedin.com/in/jason-priskomatis-746781266/" size={40} />
             <IconButton src="/images/icons/git.png" alt="Github" href="https://github.com/JPriskomatis" size={40} />
