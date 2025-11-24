@@ -21,54 +21,60 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative bg-[#20272f] px-6 overflow-hidden">
-      {/* particle layer, we want it to be between our content and the background*/}
-      <ParticleComponent className="absolute inset-0 z-10" />
+    <section className="relative bg-[#20272f] px-4 sm:px-6 lg:px-8 overflow-hidden py-16">
+    {/* particles */}
+    <ParticleComponent className="absolute inset-0 z-10" />
 
-      
-      <div className="relative max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 z-20">
-        {/* left part will be text, button, etc. */}
-        <div className="md:w-1/2 text-center md:text-left border-l-4 pl-4 pb-4 border-b-4 border-newGreen">
-          <TextAnimate className="text-5xl font-bold mb-4 text-white">
-            Hello I'm
-          </TextAnimate>
-          <TextAnimate
-            animation="blurIn"
-            as="h1"
-            className="text-gray-700 mb-6 text-newGreen text-6xl"
-            delay={1}
-          >
-            Jason Priskomatis
-          </TextAnimate>
+    <div className="relative max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 z-20">
+      {/* Left side */}
+      <div className="md:w-1/2 text-center md:text-left border-l-4 pl-4 pb-4 border-b-4 border-newGreen">
+        
+        <TextAnimate className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-white">
+          Hello I'm
+        </TextAnimate>
 
-          <p ref={loremRef} className="text-[#9a9ea1] mb-6 text-md text-gray">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et
-            ornare nisl. Nunc iaculis orci ut elit ullamcorper, vitae tempus
-            enim cursus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et
-            ornare nisl. Nunc iaculis orci ut elit ullamcorper, vitae tempus
-            enim cursus.
-          </p>
+        <TextAnimate
+          animation="blurIn"
+          as="h1"
+          className="text-newGreen text-5xl sm:text-6xl lg:text-7xl font-bold mb-6"
+          delay={1}
+        >
+          Jason Priskomatis
+        </TextAnimate>
 
-          <CoolButton />
+        <p
+          ref={loremRef}
+          className="text-[#9a9ea1] mb-6 text-sm sm:text-base leading-relaxed"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et
+          ornare nisl. Nunc iaculis orci ut elit ullamcorper, vitae tempus
+          enim cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
 
-          <div className="flex flex-row items-center gap-2 pt-16">
-            <div className="text-white pr-8 text-xl">Check out my</div>
-            <IconButton src="/images/icons/linkedin.png" alt='Linkedin' href='https://www.linkedin.com/in/jason-priskomatis-746781266/' size={40}></IconButton>
-            <IconButton src="/images/icons/git.png" alt='Github' href='https://github.com/JPriskomatis' size={40}></IconButton>
-            <IconButton src="/images/icons/steam.png" alt='Steam' href='https://store.steampowered.com/app/3537620/Friday_Night/'size={40}></IconButton>
+        <CoolButton />
+
+        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-2 pt-12">
+          <div className="text-white sm:pr-8 text-lg">Check out my</div>
+          <div className="flex flex-row items-center gap-4">
+            <IconButton src="/images/icons/linkedin.png" alt="Linkedin" href="https://www.linkedin.com/in/jason-priskomatis-746781266/" size={40} />
+            <IconButton src="/images/icons/git.png" alt="Github" href="https://github.com/JPriskomatis" size={40} />
+            <IconButton src="/images/icons/steam.png" alt="Steam" href="https://store.steampowered.com/app/3537620/Friday_Night/" size={40} />
           </div>
         </div>
-
-        {/* right part will be my image*/}
-        <FloatingCard className="rounded-xl w-[600px] h-[600px] relative z-30">
-          <img
-            src="/profile.png"
-            alt="Profile"
-            className="w-full h-full object-cover rounded-xl shadow-lg shadow-newGreen-500/50"
-          />
-        </FloatingCard>
       </div>
-    </section>
+
+      {/* Right side image */}
+      <FloatingCard className="rounded-xl w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px] relative z-30">
+        <img
+          src="/profile.png"
+          alt="Profile"
+          className="w-full h-full object-cover rounded-xl shadow-lg shadow-newGreen-500/50"
+        />
+      </FloatingCard>
+
+    </div>
+  </section>
+
   );
 };
 

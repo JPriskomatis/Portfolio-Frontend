@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../Orbit.css";
 
 const OrbitingCircles = ({ centerComponent, circleImages }) => {
-  // Dynamically calculate radius based on number of items
-  const radius = 100 + circleImages.length * 10 // base 100px + 10px per item
+  const [radius, setRadius] = useState(0);
+
+  useEffect(() => {
+    const calculateRadius = () => {
+      const screenWidth = window.innerWidth;
+
+      // Base radius
+      let baseRadius = 100 + circleImages.length * 10;
+
+      // Adjust for smaller screens
+      if (screenWidth < 640) {
+        baseRadius *= 0.5; // mobile
+      } else if (screenWidth < 1024) {
+        baseRadius *= 0.75; // tablet
+      }
+
+      setRadius(baseRadius);
+    };
+
+    calculateRadius();
+    window.addEventListener("resize", calculateRadius);
+    return () => window.removeEventListener("resize", calculateRadius);
+  }, [circleImages.length]);
 
   return (
     <div className="orbit-container" style={{ "--orbit-radius": `${radius}px` }}>
