@@ -69,7 +69,6 @@ export default function ProjectShowcase({ apiUrl, className = "" }: ProjectShowc
                     src={imgSrc}
                     alt={alt}
                     fill
-                    unoptimized
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="rounded-lg object-cover shadow-2xl shadow-black"
                   />
